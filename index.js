@@ -35,6 +35,14 @@ const getCurrentTemperature = async (lat, lon) => {
 
 app.get("/api/hello", async function (req, res) {
   let ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+  if (ip.includes(",")) {
+    ip = ip.split(",")[0].trim();
+  }
+
+  // Clean up the IP address (remove IPv6 prefix if present)
+  if (ip.includes("::ffff:")) {
+    ip = ip.split("::ffff:")[1];
+  }
 
   const visitorName = req.query.visitor_name || "Guest";
   const geoData = await getGeodata(ip);
