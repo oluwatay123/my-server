@@ -39,7 +39,6 @@ app.get("/api/hello", async function (req, res) {
     ip = ip.split(",")[0].trim();
   }
 
-  // Clean up the IP address (remove IPv6 prefix if present)
   if (ip.includes("::ffff:")) {
     ip = ip.split("::ffff:")[1];
   }
