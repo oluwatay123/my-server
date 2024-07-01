@@ -8,6 +8,7 @@ const app = express();
 const getGeodata = async (ip) => {
   try {
     const response = await axios.get(`https://ipapi.co/${ip}/json`);
+    console.log(response);
     return response.data;
   } catch (error) {
     console.error("Error fetching geo data:", error);
@@ -33,10 +34,10 @@ const getCurrentTemperature = async (lat, lon) => {
 };
 
 app.get("/api/hello", async function (req, res) {
+  const ip = req.socket.remoteAddress;
   const visitorName = req.query.visitor_name || "Guest";
-  const geoData = await getGeodata();
+  const geoData = await getGeodata(ip);
   const location = geoData.city || "unknown location";
-  const ip = req.ip;
 
   let temperature = "unknown";
   if (geoData.latitude && geoData.longitude) {
