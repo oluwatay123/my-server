@@ -40,7 +40,7 @@ This basic web server built with Node.js and Express exposes an API endpoint to 
 1. Clone the repository:
 
 ```shell
-git clone https://github.com/nathphil9411/hng-internship-stage-one-basic-server.git
+git clone https://github.com/oluwatay123/my-server.git
 ```
 
 2. Navigate to the project directory:
@@ -88,3 +88,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ipapi.co for IP geolocation.
 Open Meteo for weather data.
+# my-server
